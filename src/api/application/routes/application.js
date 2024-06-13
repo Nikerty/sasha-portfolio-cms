@@ -12,7 +12,7 @@ module.exports = createCoreRouter('api::application.application', {
         create: {
             auth: false,
             policies: [],
-            middlewares: [],
+            middlewares: ["api::application.capcha-middleware"],
         },
       },
 })
