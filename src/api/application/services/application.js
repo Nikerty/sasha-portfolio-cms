@@ -18,8 +18,9 @@ module.exports = createCoreService('api::application.application', ({ strapi }) 
         })
 
         sendEmail(
-            'New request', 
-            `The user ${createdEntity.name} has left a new request \n You can look it there -> http://localhost:1337/admin/content-manager/collection-types/api::application.application?page=1&pageSize=10&sort=name:ASC`
+            'Новая заявка', 
+            `Пользователь ${createdEntity.name} оставил(a) заявку \n 
+            Вы можете посмотреть её здесь -> ${strapi.config.get('email.application-manage-link')}`
         )
 
         return createdEntity

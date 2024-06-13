@@ -5,4 +5,5 @@ module.exports = ({ env }) => ({
     'mailer-pass': env('MAILER_PASS'),
     'mailer-display-name': env('MAILER_DISPLAY_NAME'),
     'mailer-to': env('MAILER_TO'),
+    'application-manage-link': env('APPLICATIONS_MANAGE_LINK'),
   });
