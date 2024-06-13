@@ -1,16 +1,16 @@
 version: '3'
 
 services:
-  # cms:
-    # build:
-    #   context: .
-    # container_name: sk-cms
-    # working_dir: /app
-    # restart: unless-stopped
-    # ports:
-    #   - '3000:3000'
-    # depends_on:
-    #   - db
+  cms:
+    build:
+      context: .
+    container_name: sk-cms
+    working_dir: /app
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
 
   db:
     image: postgres
