@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "preimushhestvas",
+  "info": {
+    "singularName": "preimushhestva",
+    "pluralName": "preimushhestvas",
+    "displayName": "Преимущества"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

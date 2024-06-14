@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "list_of_services",
+  "info": {
+    "singularName": "list-of-service",
+    "pluralName": "list-of-services",
+    "displayName": "Услуги",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "cover_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
+    },
+    "installation_works": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::installation-work.installation-work"
+    },
+    "service_page_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

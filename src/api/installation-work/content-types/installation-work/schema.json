@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "installation_works",
+  "info": {
+    "singularName": "installation-work",
+    "pluralName": "installation-works",
+    "displayName": "Монтажные работы",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "price": {
+      "type": "integer"
+    }
+  }
+}
