@@ -12,12 +12,12 @@ services:
     depends_on:
       - db
     volumes:
-      - ./config:/home/developer/sk-cms/config
-      - ./src:/home/developer/sk-cms/src
-      - ./package.json:/home/developer/sk-cms/package.json
-      - ./yarn.lock:/home/developer/sk-cms/yarn.lock
-      - ./.env:/home/developer/sk-cms/.env
-      - ./public/uploads:/home/developer/sk-cms/public/uploads
+      - ./config:/app/config
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+      - ./yarn.lock:/app/yarn.lock
+      - ./.env:/app/.env
+      - ./public/uploads:/app/public/uploads
 
   db:
     image: postgres
