@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "description_of_services",
+  "info": {
+    "singularName": "description-of-service",
+    "pluralName": "description-of-services",
+    "displayName": "Описание услуги"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

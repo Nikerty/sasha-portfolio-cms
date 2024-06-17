@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_page_abouts",
+  "info": {
+    "singularName": "main-page-about",
+    "pluralName": "main-page-abouts",
+    "displayName": "О компании на главной странице",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

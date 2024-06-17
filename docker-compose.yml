@@ -11,6 +11,13 @@ services:
       - '4000:4000'
     depends_on:
       - db
+    volumes:
+      - ./config:/app/config
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+      - ./yarn.lock:/app/yarn.lock
+      - ./.env:/app/.env
+      - ./public/uploads:/app/public/uploads
 
   db:
     image: postgres
