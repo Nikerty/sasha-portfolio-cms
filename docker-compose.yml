@@ -11,6 +11,13 @@ services:
       - '4000:4000'
     depends_on:
       - db
+    volumes:
+      - ./config:/home/developer/sk-cms/config
+      - ./src:/home/developer/sk-cms/src
+      - ./package.json:/home/developer/sk-cms/package.json
+      - ./yarn.lock:/home/developer/sk-cms/yarn.lock
+      - ./.env:/home/developer/sk-cms/.env
+      - ./public/uploads:/home/developer/sk-cms/public/uploads
 
   db:
     image: postgres
