@@ -1,13 +1,12 @@
 const axios = require('axios');
 const querystring = require('querystring');
 
-const checkCapcha = async (token, ip) => {
+const checkCapcha = async (token) => {
     try {
         const response = await axios.get(`https://${strapi.config.get('capcha.host')}/validate?${
             querystring.stringify({
                 secret: strapi.config.get('capcha.smart-capcha-key'),
                 token,
-                ip,
             })
         }`)
 

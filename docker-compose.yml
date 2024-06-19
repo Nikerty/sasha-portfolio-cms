@@ -18,7 +18,7 @@ services:
       - ./yarn.lock:/app/yarn.lock
       - ./.env:/app/.env
       - ./public/uploads:/app/public/uploads
-      - ./data:/srс/app/data
+      - ./data:/app/data
 
   db:
     image: postgres
