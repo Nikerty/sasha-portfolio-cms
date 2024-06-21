@@ -4,7 +4,8 @@
   "info": {
     "singularName": "description-of-service",
     "pluralName": "description-of-services",
-    "displayName": "Описание услуги"
+    "displayName": "Описание услуги",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,16 @@
   "attributes": {
     "description": {
       "type": "blocks"
+    },
+    "service_page_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
