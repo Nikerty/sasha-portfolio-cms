@@ -4,6 +4,7 @@ services:
   cms:
     build:
       context: .
+      target: local
     container_name: sk-cms
     working_dir: /app
     restart: unless-stopped
@@ -16,7 +17,7 @@ services:
       - ./src:/app/src
       - ./package.json:/app/package.json
       - ./yarn.lock:/app/yarn.lock
-      - ./.env:/app/.env
+      - ./.env.local:/app/.env
       - ./public/uploads:/app/public/uploads
       - ./data:/app/data
 
