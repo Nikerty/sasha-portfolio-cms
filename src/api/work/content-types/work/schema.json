@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "works",
+  "info": {
+    "singularName": "work",
+    "pluralName": "works",
+    "displayName": "Работы"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "work": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "work_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::work-type.work-type",
+      "inversedBy": "works"
+    }
+  }
+}

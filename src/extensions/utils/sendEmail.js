@@ -10,7 +10,7 @@ const sendEmail = async (subject, text) => {
                 user: strapi.config.get('email.mailer-user'),
                 pass: strapi.config.get('email.mailer-pass')
             }
-        });       
+        });
 
         const mailOptions = {
             from: `"${strapi.config.get('email.mailer-display-name')}" <${strapi.config.get('email.mailer-user')}>`,

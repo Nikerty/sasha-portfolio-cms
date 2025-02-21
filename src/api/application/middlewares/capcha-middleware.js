@@ -1,10 +1,10 @@
-const { checkCapcha } = require('../../../extensions/utils/checkCapcha');
+const { checkCapcha } = require("../../../extensions/utils/checkCapcha");
 
 module.exports = (config, { strapi }) => {
-    return async (ctx, next) => {
-        const { capcha } = ctx.request.body.data
+  return async (ctx, next) => {
+    const { capcha } = ctx.request.body.data;
 
-        if (!capcha) {
+    /*if (!capcha) {
             ctx.throw(400, 'Missing capcha'); 
         }
 
@@ -12,8 +12,8 @@ module.exports = (config, { strapi }) => {
 
         if (!result) {
             ctx.throw(400, 'Invalid or expired token'); 
-        }
+        }*/
 
-        await next()
-    };
+    await next();
+  };
 };

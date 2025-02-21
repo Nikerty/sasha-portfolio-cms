@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "glavnaya_straniczas",
+  "info": {
+    "singularName": "main-page",
+    "pluralName": "glavnaya-straniczas",
+    "displayName": "Главная страница"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "preview": {
+      "displayName": "main-page",
+      "type": "component",
+      "repeatable": false,
+      "component": "preview.main-page"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "works_carousel": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "form_text": {
+      "type": "string"
+    }
+  }
+}
