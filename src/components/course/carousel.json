@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_course_carousels",
+  "info": {
+    "displayName": "carousel"
+  },
+  "options": {},
+  "attributes": {
+    "courseIcon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "cardColor": {
+      "type": "string"
+    }
+  }
+}

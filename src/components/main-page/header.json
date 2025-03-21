@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_main_page_headers",
+  "info": {
+    "displayName": "header"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "blocks"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

@@ -1,32 +1,13 @@
 {
   "collectionName": "components_preview_main_pages",
   "info": {
-    "displayName": "main-page"
+    "displayName": "main-page",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "name": {
-      "type": "string"
-    },
-    "background_image": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "images": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+    "Title": {
+      "type": "blocks"
     }
   }
 }

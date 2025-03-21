@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_types",
+  "info": {
+    "singularName": "course-type",
+    "pluralName": "course-types",
+    "displayName": "course types",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "numberOfCourses": {
+      "type": "integer"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "cardColor": {
+      "type": "string"
+    }
+  }
+}

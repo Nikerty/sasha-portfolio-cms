@@ -4,34 +4,19 @@
   "info": {
     "singularName": "main-page",
     "pluralName": "glavnaya-straniczas",
-    "displayName": "Главная страница"
+    "displayName": "Главная страница",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "preview": {
-      "displayName": "main-page",
+    "header": {
+      "displayName": "header",
       "type": "component",
       "repeatable": false,
-      "component": "preview.main-page"
-    },
-    "description": {
-      "type": "richtext"
-    },
-    "works_carousel": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
-    },
-    "form_text": {
-      "type": "string"
+      "component": "main-page.header"
     }
   }
 }
