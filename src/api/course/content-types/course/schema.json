@@ -4,7 +4,8 @@
   "info": {
     "singularName": "course",
     "pluralName": "courses",
-    "displayName": "course"
+    "displayName": "course",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,23 +15,21 @@
     "name": {
       "type": "string"
     },
-    "carouselCard": {
-      "displayName": "carousel",
-      "type": "component",
-      "repeatable": false,
-      "component": "course.carousel"
-    },
-    "lessonsNumber": {
-      "type": "integer"
-    },
     "completionTime": {
       "type": "string"
     },
-    "price": {
-      "type": "integer"
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     },
-    "studentsNumber": {
-      "type": "integer"
+    "instruments": {
+      "type": "text"
     }
   }
 }
