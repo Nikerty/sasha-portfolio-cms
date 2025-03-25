@@ -19,6 +19,20 @@
       "type": "string"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "instruments": {
+      "type": "text"
+    },
+    "techologiesIcons": {
       "allowedTypes": [
         "images",
         "files",
@@ -26,10 +40,7 @@
         "audios"
       ],
       "type": "media",
-      "multiple": false
-    },
-    "instruments": {
-      "type": "text"
+      "multiple": true
     }
   }
 }
