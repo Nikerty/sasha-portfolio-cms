@@ -31,6 +31,9 @@
     },
     "cardColor": {
       "type": "string"
+    },
+    "filterValue": {
+      "type": "string"
     }
   }
 }
