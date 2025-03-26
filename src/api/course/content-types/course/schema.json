@@ -56,6 +56,12 @@
     },
     "courseDescriptionText": {
       "type": "blocks"
+    },
+    "courseRightCardDescription": {
+      "type": "blocks"
+    },
+    "price": {
+      "type": "integer"
     }
   }
 }
