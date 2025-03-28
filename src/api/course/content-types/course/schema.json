@@ -29,9 +29,6 @@
         "audios"
       ]
     },
-    "instruments": {
-      "type": "text"
-    },
     "techologiesIcons": {
       "type": "media",
       "multiple": true,
@@ -48,6 +45,29 @@
       "type": "component",
       "repeatable": true,
       "component": "course.tariff"
+    },
+    "course_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course-type.course-type"
+    },
+    "cardColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "courseDescriptionText": {
+      "type": "blocks"
+    },
+    "courseRightCardDescription": {
+      "type": "blocks"
+    },
+    "price": {
+      "type": "integer"
     }
   }
 }
