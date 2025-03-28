@@ -33,14 +33,21 @@
       "type": "text"
     },
     "techologiesIcons": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "tariffs": {
+      "displayName": "tariff",
+      "type": "component",
+      "repeatable": true,
+      "component": "course.tariff"
     }
   }
 }

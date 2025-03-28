@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_course_tariffs",
+  "info": {
+    "displayName": "tariff",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "descriptionList": {
+      "type": "blocks"
+    },
+    "isMostPopular": {
+      "type": "boolean"
+    }
+  }
+}
