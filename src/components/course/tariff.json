@@ -17,6 +17,9 @@
     },
     "isMostPopular": {
       "type": "boolean"
+    },
+    "duration": {
+      "type": "string"
     }
   }
 }
