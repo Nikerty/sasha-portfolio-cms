@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_files",
+  "info": {
+    "singularName": "site-file",
+    "pluralName": "site-files",
+    "displayName": "Файлы"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "offer": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "policy": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
