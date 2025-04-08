@@ -29,17 +29,6 @@
         "audios"
       ]
     },
-    "techologiesIcons": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "tariffs": {
       "displayName": "tariff",
       "type": "component",
@@ -50,12 +39,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::course-type.course-type"
-    },
-    "cardColor": {
-      "type": "string"
-    },
-    "textColor": {
-      "type": "string"
     },
     "slug": {
       "type": "string"
@@ -68,6 +51,12 @@
     },
     "price": {
       "type": "integer"
+    },
+    "seo_title": {
+      "type": "string"
+    },
+    "seo_description": {
+      "type": "text"
     }
   }
 }
