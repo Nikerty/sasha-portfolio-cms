@@ -57,6 +57,12 @@
     },
     "seo_description": {
       "type": "text"
+    },
+    "techologies": {
+      "displayName": "technology",
+      "type": "component",
+      "repeatable": true,
+      "component": "course.technology"
     }
   }
 }
