@@ -362,38 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiApplicationApplication extends Schema.CollectionType {
-  collectionName: 'applications';
-  info: {
-    singularName: 'application';
-    pluralName: 'applications';
-    displayName: 'Application';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String & Attribute.Required;
-    phone: Attribute.String & Attribute.Required & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::application.application',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::application.application',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -622,6 +590,53 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -727,7 +742,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -773,205 +787,112 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
+export interface ApiAuthorAuthor extends Schema.CollectionType {
+  collectionName: 'authors';
   info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 50;
-        },
-        number
-      >;
-    code: Attribute.String & Attribute.Unique;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiAboutAbout extends Schema.SingleType {
-  collectionName: 'abouts';
-  info: {
-    singularName: 'about';
-    pluralName: 'abouts';
-    displayName: '\u041E \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    description: Attribute.RichText;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::about.about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::about.about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiContactContact extends Schema.SingleType {
-  collectionName: 'contacts';
-  info: {
-    singularName: 'contact';
-    pluralName: 'contacts';
-    displayName: '\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u043D\u0430\u044F \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    phone: Attribute.String;
-    email: Attribute.String;
-    schedule: Attribute.String;
-    address: Attribute.RichText;
-    requisites: Attribute.RichText;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::contact.contact',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::contact.contact',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCooperationCooperation extends Schema.SingleType {
-  collectionName: 'cooperations';
-  info: {
-    singularName: 'cooperation';
-    pluralName: 'cooperations';
-    displayName: '\u0421\u043E\u0442\u0440\u0443\u0434\u043D\u0438\u0447\u0435\u0441\u0442\u0432\u043E';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    description: Attribute.Blocks;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::cooperation.cooperation',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::cooperation.cooperation',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiDescriptionOfServiceDescriptionOfService
-  extends Schema.SingleType {
-  collectionName: 'description_of_services';
-  info: {
-    singularName: 'description-of-service';
-    pluralName: 'description-of-services';
-    displayName: '\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0443\u0441\u043B\u0443\u0433\u0438';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    description: Attribute.Blocks;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::description-of-service.description-of-service',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::description-of-service.description-of-service',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiDiplomaDiploma extends Schema.CollectionType {
-  collectionName: 'diplomas';
-  info: {
-    singularName: 'diploma';
-    pluralName: 'diplomas';
-    displayName: '\u0414\u0438\u043F\u043B\u043E\u043C\u044B \u0438 \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u044B';
+    singularName: 'author';
+    pluralName: 'authors';
+    displayName: 'author';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    role: Attribute.String;
+    avatar: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::diploma.diploma',
+      'api::author.author',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::diploma.diploma',
+      'api::author.author',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCourseCourse extends Schema.CollectionType {
+  collectionName: 'courses';
+  info: {
+    singularName: 'course';
+    pluralName: 'courses';
+    displayName: 'course';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    completionTime: Attribute.String;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    tariffs: Attribute.Component<'course.tariff', true>;
+    course_type: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'api::course-type.course-type'
+    >;
+    slug: Attribute.String;
+    courseDescriptionText: Attribute.Blocks;
+    courseRightCardDescription: Attribute.Blocks;
+    price: Attribute.Integer;
+    seo_title: Attribute.String;
+    seo_description: Attribute.Text;
+    techologies: Attribute.Component<'course.technology', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCourseTypeCourseType extends Schema.CollectionType {
+  collectionName: 'course_types';
+  info: {
+    singularName: 'course-type';
+    pluralName: 'course-types';
+    displayName: 'course types';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    numberOfCourses: Attribute.Integer;
+    icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    cardColor: Attribute.String;
+    filterValue: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course-type.course-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course-type.course-type',
       'oneToOne',
       'admin::user'
     > &
@@ -984,14 +905,14 @@ export interface ApiFaqFaq extends Schema.CollectionType {
   info: {
     singularName: 'faq';
     pluralName: 'faqs';
-    displayName: '\u0427\u0430\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u044B';
+    displayName: 'faq';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    answer: Attribute.Text;
     question: Attribute.String;
-    answer: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1002,33 +923,34 @@ export interface ApiFaqFaq extends Schema.CollectionType {
   };
 }
 
-export interface ApiInstallationWorkInstallationWork
-  extends Schema.CollectionType {
-  collectionName: 'installation_works';
+export interface ApiFeedbackFeedback extends Schema.CollectionType {
+  collectionName: 'feedbacks';
   info: {
-    singularName: 'installation-work';
-    pluralName: 'installation-works';
-    displayName: '\u041C\u043E\u043D\u0442\u0430\u0436\u043D\u044B\u0435 \u0440\u0430\u0431\u043E\u0442\u044B';
+    singularName: 'feedback';
+    pluralName: 'feedbacks';
+    displayName: 'Feedback';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.Blocks;
-    price: Attribute.Integer;
+    fio: Attribute.String;
+    position: Attribute.String;
+    avatar: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    whereWorking: Attribute.String;
+    review: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::installation-work.installation-work',
+      'api::feedback.feedback',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::installation-work.installation-work',
+      'api::feedback.feedback',
       'oneToOne',
       'admin::user'
     > &
@@ -1036,45 +958,30 @@ export interface ApiInstallationWorkInstallationWork
   };
 }
 
-export interface ApiListOfServiceListOfService extends Schema.CollectionType {
-  collectionName: 'list_of_services';
+export interface ApiMainPageMainPage extends Schema.SingleType {
+  collectionName: 'glavnaya_straniczas';
   info: {
-    singularName: 'list-of-service';
-    pluralName: 'list-of-services';
-    displayName: '\u0423\u0441\u043B\u0443\u0433\u0438';
+    singularName: 'main-page';
+    pluralName: 'glavnaya-straniczas';
+    displayName: '\u0413\u043B\u0430\u0432\u043D\u0430\u044F \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0430';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    cover_image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    description: Attribute.Blocks;
-    projects: Attribute.Relation<
-      'api::list-of-service.list-of-service',
-      'oneToMany',
-      'api::project.project'
-    >;
-    installation_works: Attribute.Relation<
-      'api::list-of-service.list-of-service',
-      'oneToMany',
-      'api::installation-work.installation-work'
-    >;
-    service_page_image: Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    header: Attribute.Component<'main-page.header'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::list-of-service.list-of-service',
+      'api::main-page.main-page',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::list-of-service.list-of-service',
+      'api::main-page.main-page',
       'oneToOne',
       'admin::user'
     > &
@@ -1082,44 +989,12 @@ export interface ApiListOfServiceListOfService extends Schema.CollectionType {
   };
 }
 
-export interface ApiMainPageAboutMainPageAbout extends Schema.SingleType {
-  collectionName: 'main_page_abouts';
+export interface ApiPartnerPartner extends Schema.CollectionType {
+  collectionName: 'partners';
   info: {
-    singularName: 'main-page-about';
-    pluralName: 'main-page-abouts';
-    displayName: '\u041E \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u0438 \u043D\u0430 \u0433\u043B\u0430\u0432\u043D\u043E\u0439 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    description: Attribute.RichText;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::main-page-about.main-page-about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::main-page-about.main-page-about',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPreimushhestvaPreimushhestva extends Schema.CollectionType {
-  collectionName: 'preimushhestvas';
-  info: {
-    singularName: 'preimushhestva';
-    pluralName: 'preimushhestvas';
-    displayName: '\u041F\u0440\u0435\u0438\u043C\u0443\u0449\u0435\u0441\u0442\u0432\u0430';
+    singularName: 'partner';
+    pluralName: 'partners';
+    displayName: 'partners';
   };
   options: {
     draftAndPublish: true;
@@ -1127,18 +1002,17 @@ export interface ApiPreimushhestvaPreimushhestva extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     icon: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    description: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::preimushhestva.preimushhestva',
+      'api::partner.partner',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::preimushhestva.preimushhestva',
+      'api::partner.partner',
       'oneToOne',
       'admin::user'
     > &
@@ -1146,67 +1020,71 @@ export interface ApiPreimushhestvaPreimushhestva extends Schema.CollectionType {
   };
 }
 
-export interface ApiProjectProject extends Schema.CollectionType {
-  collectionName: 'projects';
+export interface ApiPostPost extends Schema.CollectionType {
+  collectionName: 'posts';
   info: {
-    singularName: 'project';
-    pluralName: 'projects';
-    displayName: '\u0420\u0435\u0430\u043B\u0438\u0437\u043E\u0432\u0430\u043D\u043D\u044B\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u044B';
+    singularName: 'post';
+    pluralName: 'posts';
+    displayName: 'post';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    description: Attribute.Blocks;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Attribute.String;
+    description: Attribute.Text;
+    cardImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    slug: Attribute.String;
+    category: Attribute.Enumeration<['frontend', 'backend', 'soft']>;
+    author: Attribute.Relation<
+      'api::post.post',
+      'oneToOne',
+      'api::author.author'
+    >;
+    main_content: Attribute.RichText;
+    reading_time: Attribute.String;
+    publish_date: Attribute.Date;
+    read_also_posts: Attribute.Relation<
+      'api::post.post',
+      'oneToMany',
+      'api::post.post'
+    >;
+    second_category: Attribute.Enumeration<['development']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::project.project',
-      'oneToOne',
-      'admin::user'
-    > &
+    createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
       Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::project.project',
-      'oneToOne',
-      'admin::user'
-    > &
+    updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
 
-export interface ApiUsersFeedbackUsersFeedback extends Schema.CollectionType {
-  collectionName: 'users_feedbacks';
+export interface ApiSiteFileSiteFile extends Schema.SingleType {
+  collectionName: 'site_files';
   info: {
-    singularName: 'users-feedback';
-    pluralName: 'users-feedbacks';
-    displayName: '\u041E\u0442\u0437\u044B\u0432\u044B \u043A\u043B\u0438\u0435\u043D\u0442\u043E\u0432';
-    description: '';
+    singularName: 'site-file';
+    pluralName: 'site-files';
+    displayName: '\u0424\u0430\u0439\u043B\u044B';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    city: Attribute.String;
-    text: Attribute.Text;
-    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    date: Attribute.Date;
+    offer: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    policy: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::users-feedback.users-feedback',
+      'api::site-file.site-file',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::users-feedback.users-feedback',
+      'api::site-file.site-file',
       'oneToOne',
       'admin::user'
     > &
@@ -1224,27 +1102,23 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::application.application': ApiApplicationApplication;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
-      'api::about.about': ApiAboutAbout;
-      'api::contact.contact': ApiContactContact;
-      'api::cooperation.cooperation': ApiCooperationCooperation;
-      'api::description-of-service.description-of-service': ApiDescriptionOfServiceDescriptionOfService;
-      'api::diploma.diploma': ApiDiplomaDiploma;
+      'api::author.author': ApiAuthorAuthor;
+      'api::course.course': ApiCourseCourse;
+      'api::course-type.course-type': ApiCourseTypeCourseType;
       'api::faq.faq': ApiFaqFaq;
-      'api::installation-work.installation-work': ApiInstallationWorkInstallationWork;
-      'api::list-of-service.list-of-service': ApiListOfServiceListOfService;
-      'api::main-page-about.main-page-about': ApiMainPageAboutMainPageAbout;
-      'api::preimushhestva.preimushhestva': ApiPreimushhestvaPreimushhestva;
-      'api::project.project': ApiProjectProject;
-      'api::users-feedback.users-feedback': ApiUsersFeedbackUsersFeedback;
+      'api::feedback.feedback': ApiFeedbackFeedback;
+      'api::main-page.main-page': ApiMainPageMainPage;
+      'api::partner.partner': ApiPartnerPartner;
+      'api::post.post': ApiPostPost;
+      'api::site-file.site-file': ApiSiteFileSiteFile;
     }
   }
 }

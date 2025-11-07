@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "posts",
+  "info": {
+    "singularName": "post",
+    "pluralName": "posts",
+    "displayName": "post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cardImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "slug": {
+      "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "frontend",
+        "backend",
+        "soft"
+      ]
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
+    },
+    "main_content": {
+      "type": "richtext"
+    },
+    "reading_time": {
+      "type": "string"
+    },
+    "publish_date": {
+      "type": "date"
+    },
+    "read_also_posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post"
+    },
+    "second_category": {
+      "type": "enumeration",
+      "enum": [
+        "development"
+      ]
+    }
+  }
+}
