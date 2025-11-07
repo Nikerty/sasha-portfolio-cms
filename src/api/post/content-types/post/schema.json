@@ -59,11 +59,10 @@
       "relation": "oneToMany",
       "target": "api::post.post"
     },
-    "second_category": {
-      "type": "enumeration",
-      "enum": [
-        "development"
-      ]
+    "second_post_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::posts-category.posts-category"
     }
   }
 }

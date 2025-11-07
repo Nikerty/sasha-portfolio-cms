@@ -1050,13 +1050,47 @@ export interface ApiPostPost extends Schema.CollectionType {
       'oneToMany',
       'api::post.post'
     >;
-    second_category: Attribute.Enumeration<['development']>;
+    second_post_category: Attribute.Relation<
+      'api::post.post',
+      'oneToOne',
+      'api::posts-category.posts-category'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPostsCategoryPostsCategory extends Schema.CollectionType {
+  collectionName: 'posts_categories';
+  info: {
+    singularName: 'posts-category';
+    pluralName: 'posts-categories';
+    displayName: 'posts category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::posts-category.posts-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::posts-category.posts-category',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -1118,6 +1152,7 @@ declare module '@strapi/types' {
       'api::main-page.main-page': ApiMainPageMainPage;
       'api::partner.partner': ApiPartnerPartner;
       'api::post.post': ApiPostPost;
+      'api::posts-category.posts-category': ApiPostsCategoryPostsCategory;
       'api::site-file.site-file': ApiSiteFileSiteFile;
     }
   }
