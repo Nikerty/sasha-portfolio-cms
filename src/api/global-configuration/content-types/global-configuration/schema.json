@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "global_configurations",
+  "info": {
+    "singularName": "global-configuration",
+    "pluralName": "global-configurations",
+    "displayName": "Global Configuration",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "is_sales_active": {
+      "type": "boolean"
+    },
+    "banner_type": {
+      "type": "enumeration",
+      "enum": [
+        "main",
+        "blackFriday",
+        "timerFirst",
+        "timerSecond",
+        "none"
+      ]
+    },
+    "countdownDate": {
+      "type": "datetime"
+    }
+  }
+}

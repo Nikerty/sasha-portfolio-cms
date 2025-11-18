@@ -847,6 +847,9 @@ export interface ApiCourseCourse extends Schema.CollectionType {
     seo_title: Attribute.String;
     seo_description: Attribute.Text;
     techologies: Attribute.Component<'course.technology', true>;
+    isCourse: Attribute.Boolean;
+    saleAmount: Attribute.Integer;
+    saleFinalPrice: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -951,6 +954,42 @@ export interface ApiFeedbackFeedback extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::feedback.feedback',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiGlobalConfigurationGlobalConfiguration
+  extends Schema.SingleType {
+  collectionName: 'global_configurations';
+  info: {
+    singularName: 'global-configuration';
+    pluralName: 'global-configurations';
+    displayName: 'Global Configuration';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    is_sales_active: Attribute.Boolean;
+    banner_type: Attribute.Enumeration<
+      ['main', 'blackFriday', 'timerFirst', 'timerSecond', 'none']
+    >;
+    countdownDate: Attribute.DateTime;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::global-configuration.global-configuration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::global-configuration.global-configuration',
       'oneToOne',
       'admin::user'
     > &
@@ -1149,6 +1188,7 @@ declare module '@strapi/types' {
       'api::course-type.course-type': ApiCourseTypeCourseType;
       'api::faq.faq': ApiFaqFaq;
       'api::feedback.feedback': ApiFeedbackFeedback;
+      'api::global-configuration.global-configuration': ApiGlobalConfigurationGlobalConfiguration;
       'api::main-page.main-page': ApiMainPageMainPage;
       'api::partner.partner': ApiPartnerPartner;
       'api::post.post': ApiPostPost;

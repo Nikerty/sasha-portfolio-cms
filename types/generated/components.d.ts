@@ -23,6 +23,8 @@ export interface CourseTariff extends Schema.Component {
     descriptionList: Attribute.Blocks;
     isMostPopular: Attribute.Boolean;
     duration: Attribute.String;
+    saleAmount: Attribute.Integer;
+    saleFinalPrice: Attribute.Integer;
   };
 }
 

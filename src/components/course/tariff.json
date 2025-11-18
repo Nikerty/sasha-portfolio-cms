@@ -20,6 +20,12 @@
     },
     "duration": {
       "type": "string"
+    },
+    "saleAmount": {
+      "type": "integer"
+    },
+    "saleFinalPrice": {
+      "type": "integer"
     }
   }
 }

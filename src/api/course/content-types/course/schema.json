@@ -63,6 +63,15 @@
       "type": "component",
       "repeatable": true,
       "component": "course.technology"
+    },
+    "isCourse": {
+      "type": "boolean"
+    },
+    "saleAmount": {
+      "type": "integer"
+    },
+    "saleFinalPrice": {
+      "type": "integer"
     }
   }
 }
