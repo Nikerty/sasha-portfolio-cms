@@ -1075,7 +1075,9 @@ export interface ApiPostPost extends Schema.CollectionType {
     description: Attribute.Text;
     cardImage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     slug: Attribute.String;
-    category: Attribute.Enumeration<['frontend', 'backend', 'soft']>;
+    category: Attribute.Enumeration<
+      ['frontend', 'backend', 'fullstack', 'soft']
+    >;
     author: Attribute.Relation<
       'api::post.post',
       'oneToOne',
@@ -1089,9 +1091,9 @@ export interface ApiPostPost extends Schema.CollectionType {
       'oneToMany',
       'api::post.post'
     >;
-    second_post_category: Attribute.Relation<
+    second_post_categories: Attribute.Relation<
       'api::post.post',
-      'oneToOne',
+      'oneToMany',
       'api::posts-category.posts-category'
     >;
     createdAt: Attribute.DateTime;

@@ -37,6 +37,7 @@
       "enum": [
         "frontend",
         "backend",
+        "fullstack",
         "soft"
       ]
     },
@@ -59,9 +60,9 @@
       "relation": "oneToMany",
       "target": "api::post.post"
     },
-    "second_post_category": {
+    "second_post_categories": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::posts-category.posts-category"
     }
   }
